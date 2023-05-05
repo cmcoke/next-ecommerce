@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -15,8 +16,8 @@ export const authOptions = {
     })
     // Add another provider (Apple, Facebook, Instgram, Github, etc...)
   ],
-  // creates a new stripe customer when a new user logs in
   events: {
+    // creates a new stripe customer when a new user logs in
     createUser: async ({ user }) => {
       // initiate stripe
       const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {

@@ -11,13 +11,15 @@ const getProducts = async () => {
   const products = await stripe.products.list();
   // console.log(products); // outputs all the products created in stripe
 
-  // gets a product' price
   const productWithPrices = await Promise.all(
     products.data.map(async product => {
+      // gets a product' price
       const prices = await stripe.prices.list({ product: product.id });
 
-      const features = product.metadata.features || ""; // Extract features from metadata
+      // extract features from metadata
+      const features = product.metadata.features || "";
 
+      // get properties associated with products
       return {
         id: product.id,
         name: product.name,
