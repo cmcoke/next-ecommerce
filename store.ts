@@ -14,7 +14,7 @@ type CartItem = {
 type CartState = {
   isOpen: boolean;
   cart: AddCartType[];
-  toogleCart: () => void;
+  toggleCart: () => void;
   clearCart: () => void;
   addProduct: (item: AddCartType) => void;
   removeProduct: (item: AddCartType) => void;
@@ -38,7 +38,7 @@ export const useCartStore = create<CartState>()(
       onCheckout: "cart",
 
       // toggles the shopping cart
-      toogleCart: () => set(state => ({ isOpen: !state.isOpen })),
+      toggleCart: () => set(state => ({ isOpen: !state.isOpen })),
 
       // adds a product to the shopping cart
       addProduct: item =>

@@ -4,7 +4,7 @@ import { useCartStore } from "@/store";
 import { AddCartType } from "@/types/AddCartType";
 import { useState } from "react";
 
-export default function AddCart({ name, image, id, quantity, unit_amount }: AddCartType) {
+export default function AddCart({ name, id, image, unit_amount, quantity }: AddCartType) {
   const cartStore = useCartStore();
   const [added, setAdded] = useState(false);
 

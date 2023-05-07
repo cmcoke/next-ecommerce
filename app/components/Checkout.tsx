@@ -26,7 +26,6 @@ export default function Checkout() {
     } else {
       setStripeTheme("night");
     }
-
     //Create a paymentIntent as soon as the page loads up
     fetch("/api/create-payment-intent", {
       method: "POST",
@@ -37,11 +36,9 @@ export default function Checkout() {
       })
     })
       .then(res => {
-        // console.log(res);
         if (res.status === 403) {
           return router.push("/api/auth/signin");
         }
-        // sets the client secret and the payment intent associated with it
         return res.json();
       })
       .then(data => {

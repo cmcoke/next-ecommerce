@@ -19,7 +19,7 @@ model User {
   sessions         Session[]
   // adds stripe user id to the database
   stripeCustomerId String?
-  order            Order[]
+  orders           Order[]
 }
 
 model Order {
@@ -57,8 +57,7 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
