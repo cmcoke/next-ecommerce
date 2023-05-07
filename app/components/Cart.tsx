@@ -21,7 +21,7 @@ export default function Cart() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => cartStore.toogleCart()} className="fixed w-full h-screen left-0 top-0 bg-black/25">
       {/* Cart */}
-      <motion.div layout onClick={e => e.stopPropagation()} className="bg-white absolute right-0 top-0 h-screen p-12 overflow-y-scroll  w-full lg:w-2/5">
+      <motion.div layout onClick={e => e.stopPropagation()} className="bg-base-200 absolute right-0 top-0 h-screen p-12 overflow-y-scroll  w-full lg:w-2/5">
         {cartStore.onCheckout === "cart" && (
           <button onClick={() => cartStore.toogleCart()} className="text-sm font-bold pb-12">
             Back to store 🏃‍♂️{" "}
@@ -38,7 +38,7 @@ export default function Cart() {
         {cartStore.onCheckout === "cart" && (
           <>
             {cartStore.cart.map(item => (
-              <motion.div layout className="flex py-4 gap-4" key={item.id}>
+              <motion.div layout className="flex p-4 my-4 rounded-lg gap-4 bg-base-100" key={item.id}>
                 <Image src={item.image} alt={item.name} width={120} height={120} className="rounded-md h-24" />
                 <motion.div layout>
                   <h2>{item.name}</h2>

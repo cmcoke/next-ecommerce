@@ -8,6 +8,7 @@ import Cart from "./Cart";
 import { useCartStore } from "@/store";
 import { AiFillShopping } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
+import DarkLight from "./DarkLight";
 
 export default function Nav({ user }: Session) {
   const cartStore = useCartStore();
@@ -15,9 +16,9 @@ export default function Nav({ user }: Session) {
   return (
     <nav className="flex justify-between items-center py-12">
       <Link href={"/"}>
-        <h1>Styled</h1>
+        <h1 className="font-lobster text-xl">Styled</h1>
       </Link>
-      <ul className="flex items-center gap-12">
+      <ul className="flex items-center gap-8">
         {/* toggles shopping cart */}
         <li onClick={() => cartStore.toogleCart()} className="flex items-center text-3xl relative cursor-pointer">
           <AiFillShopping />
@@ -29,6 +30,10 @@ export default function Nav({ user }: Session) {
             )}
           </AnimatePresence>
         </li>
+
+        {/* Dark Mode */}
+        <DarkLight />
+
         {/* if the user is not signed in, show the 'Sign In' button */}
         {!user && (
           <li className="bg-primary text-white py-2 px-4 rounded-md">

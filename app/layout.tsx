@@ -3,11 +3,18 @@ import "./globals.css";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Hydrate from "./components/Hydrate";
-import { Roboto } from "next/font/google";
+import { Roboto, Lobster_Two } from "next/font/google";
 
 const roboto = Roboto({
   weight: ["400", "500", "700"],
-  subsets: ["latin"]
+  subsets: ["latin"],
+  variable: "--font-roboto"
+});
+
+const lobster = Lobster_Two({
+  weight: "700",
+  subsets: ["latin"],
+  variable: "--font-lobster"
 });
 
 export const metadata = {
@@ -21,13 +28,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // console.log(session); // shows the user object which contains the name, email & iamge properties
 
   return (
-    <html lang="en" data-theme="light">
-      <body className={`mx-4 lg:mx-48 ${roboto.className}`}>
-        <Hydrate>
-          <Nav user={session?.user} expires={session?.expires as string} />
-          {children}
-        </Hydrate>
-      </body>
+    <html className={`${roboto.variable} ${lobster.variable}  `} lang="en">
+      <Hydrate>
+        <Nav user={session?.user} expires={session?.expires as string} />
+        {children}
+      </Hydrate>
     </html>
   );
 }
