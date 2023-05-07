@@ -24,13 +24,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   // fetch the user
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
   // console.log(session); // shows the user object which contains the name, email & iamge properties
 
   return (
     <html className={`${roboto.variable} ${lobster.variable}  `} lang="en">
       <Hydrate>
-        <Nav user={session?.user} expires={session?.expires as string} />
+        <Nav />
         {children}
       </Hydrate>
     </html>

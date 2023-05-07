@@ -1,5 +1,5 @@
 import { prisma } from "@/util/prisma";
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import formatPrice from "@/util/PriceFormat";
 import Image from "next/image";
