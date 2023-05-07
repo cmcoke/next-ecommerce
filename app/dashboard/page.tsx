@@ -39,7 +39,7 @@ export default async function Dashboard() {
 
       <div className="font-medium">
         {orders.map(order => (
-          <div key={order.id} className="rounded-lg  my-12">
+          <div key={order.id} className="rounded-lg p-8 my-4 space-y-2 bg-base-200">
             <h2 className="text-sm font-medium mb-3">Order reference: {order.id}</h2>
 
             <p className="text-sm mb-3">
@@ -48,7 +48,7 @@ export default async function Dashboard() {
 
             <p>Time: {new Date(order.createdDate).toString()}</p>
 
-            <div className="text-sm lg:flex items-center  gap-4">
+            <div className="text-sm lg:flex items-center gap-4">
               {order.products.map(product => (
                 <div className="py-2" key={product.id}>
                   <h2 className="py-2">{product.name}</h2>

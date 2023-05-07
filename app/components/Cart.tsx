@@ -21,7 +21,7 @@ export default function Cart() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => cartStore.toogleCart()} className="fixed w-full h-screen left-0 top-0 bg-black/25">
       {/* Cart */}
-      <motion.div layout onClick={e => e.stopPropagation()} className="bg-white absolute right-0 top-0 h-screen p-12 overflow-y-scroll text-gray-700 w-full lg:w-2/5">
+      <motion.div layout onClick={e => e.stopPropagation()} className="bg-white absolute right-0 top-0 h-screen p-12 overflow-y-scroll  w-full lg:w-2/5">
         {cartStore.onCheckout === "cart" && (
           <button onClick={() => cartStore.toogleCart()} className="text-sm font-bold pb-12">
             Back to store 🏃‍♂️{" "}
@@ -83,7 +83,7 @@ export default function Cart() {
         {cartStore.cart.length > 0 && cartStore.onCheckout === "cart" ? (
           <motion.div layout>
             <p>Total: {formatPrice(totalPrice)}</p>
-            <button onClick={() => cartStore.setCheckout("checkout")} className="py-2 mt-4 bg-teal-700 w-full rounded-md text-white">
+            <button onClick={() => cartStore.setCheckout("checkout")} className="py-2 mt-4 bg-primary w-full rounded-md text-white">
               Checkout
             </button>
           </motion.div>

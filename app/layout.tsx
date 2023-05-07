@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   // console.log(session); // shows the user object which contains the name, email & iamge properties
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
       <body className={`mx-4 lg:mx-48 ${roboto.className}`}>
         <Hydrate>
           <Nav user={session?.user} expires={session?.expires as string} />
